@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 09:54 PM
+-- Generation Time: Jun 05, 2023 at 08:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -41,7 +41,11 @@ CREATE TABLE `doctor_details` (
 
 INSERT INTO `doctor_details` (`id`, `name`, `treatment`, `location`, `timestamp`) VALUES
 (1, 'Dr. Dixit', 'Skin Care', ' Dwarka, Delhi', '2023-06-04 10:16:58'),
-(10, 'Vikash Singla', 'Dentist, Skin care', 'Delhi', '2023-06-04 17:41:02');
+(10, 'Vikash Singla', 'Dentist, Skin care', 'Delhi', '2023-06-04 17:41:02'),
+(16, 'Dr. Akash', 'Urologist', 'Ajadpur, Delhi', '2023-06-04 20:02:00'),
+(17, 'Dr. Aman', 'cardiologist', 'Rajouri Garden, Delhi', '2023-06-04 20:03:46'),
+(18, 'Dr. Singla', 'Dentist', 'Gurgaon', '2023-06-04 20:04:25'),
+(19, 'DR. Preeti', 'Skin Care', 'Gurgaon', '2023-06-04 20:04:58');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +65,7 @@ ALTER TABLE `doctor_details`
 -- AUTO_INCREMENT for table `doctor_details`
 --
 ALTER TABLE `doctor_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
