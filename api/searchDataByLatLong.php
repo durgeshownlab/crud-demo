@@ -15,7 +15,7 @@ include "../db/conn.php";
 
 $output='';
 
-    $sql="select * from doctor_details where location like '{$city}%'";
+    $sql="select * from doctor_details where Locate(location, '".$city."')>0 or Locate('".$city."',location)>0";
 
     $result=mysqli_query($conn, $sql);
 
