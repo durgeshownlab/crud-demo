@@ -70,7 +70,7 @@
               type="submit"
               id="search-btn"
             >
-              Search
+              Detect Location
             </button>
           </form>
         </div>
@@ -270,16 +270,43 @@
         //on click on search
         $(document).on("click", "#search-btn", function (e) {
           e.preventDefault();
-          var searchText = $("#search-bar").val();
-          console.log(searchText);
-          $.ajax({
-            url: "api/searchData.php",
-            type: "POST",
-            data: { text: searchText },
-            success: function (data) {
-              $("#item-container").html(data);
-            }
-          });
+          // var lat='28.8782204';
+          // var long='77.1110401';
+
+          if ("geolocation" in navigator) {
+            // Prompt user for permission to access their location
+            navigator.geolocation.getCurrentPosition(
+              // Success callback function
+              (position) => {
+                // Get the user's latitude and longitude coordinates
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                
+
+                $.ajax({
+                  url: "api/searchDataByLatLong.php",
+                  type: "POST",
+                  data: {lat: lat, long: lng},
+                  success: function (data) {
+                    $("#item-container").html(data);
+                  }
+                });
+
+                // Do something with the location data, e.g. display on a map
+                console.log(`Latitude: ${lat}, longitude: ${lng}`);
+              },
+              // Error callback function
+              (error) => {
+                // Handle errors, e.g. user denied location sharing permissions
+                console.error("Error getting user location:", error);
+              }
+            );
+          } else {
+            // Geolocation is not supported by the browser
+            console.error("Geolocation is not supported by this browser.");
+          }
+
+          
         });
 
       });

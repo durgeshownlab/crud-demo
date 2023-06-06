@@ -1,0 +1,11 @@
+{
+    "name": "administrator/crud",
+    "autoload": {
+        "psr-4": {
+            "Administrator\\Crud\\": "src/"
+        }
+    },
+    "require": {
+        "opencage/geocode": "^3.1"
+    }
+}
